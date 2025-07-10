@@ -5,12 +5,10 @@ A full-stack Pokémon team building application built with Next.js frontend and 
 ## 🎮 Features
 
 ### Frontend (Next.js)
-- **Pokémon Browser**: Browse all 151 original Pokémon with stats and images
+- **Pokémon Browser**: Browse all original Pokémon with stats and images
 - **Team Management**: Build and manage your Pokémon team
 - **Advanced Filtering**: Search by name, filter by type, sort by stats
 - **Infinite Scroll**: Smooth pagination for browsing Pokémon
-- **Responsive Design**: Works on desktop and mobile
-- **Dark Mode**: Beautiful dark theme
 - **Contact Form**: Get in touch with feedback
 - **Admin Panel**: Manage contact messages
 
