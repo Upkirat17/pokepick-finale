@@ -20,7 +20,7 @@ export default function AdminPage() {
   const fetchMessages = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:4000/api/contact/messages');
+              const response = await fetch('http://localhost:4000/api/contact/messages');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -80,8 +80,8 @@ export default function AdminPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 flex flex-col items-center justify-center">
+        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
           </div>
@@ -92,14 +92,14 @@ export default function AdminPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 flex flex-col items-center justify-center">
+        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-red-600 mb-4">Error</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">{error}</p>
+            <h2 className="text-3xl font-pixelify-sans font-bold text-[rgb(216,52,52)] mb-4 drop-shadow-lg">Error</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-4 font-pixelify-sans">{error}</p>
             <button
               onClick={fetchMessages}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors"
+              className="text-white font-jersey-15 bg-[#38667f] px-8 py-3 rounded-lg text-lg border-0 shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,0px_10px_#00000038,5px_5px_#00000038,-5px_5px_#00000038,inset_0px_5px_#ffffff36] active:translate-y-[5px] active:shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,inset_0px_5px_#00000038] transition-all"
             >
               Try Again
             </button>
@@ -110,51 +110,51 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 flex flex-col items-center justify-center">
+      <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center">
+          <h1 className="text-5xl font-pixelify-sans font-bold text-[#1a1a1a] dark:text-white mb-2 drop-shadow-lg">
             Contact Messages
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-600 dark:text-gray-400 font-pixelify-sans">
             Manage contact form submissions and feedback
           </p>
         </div>
 
         {messages.length === 0 ? (
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
-            <p className="text-gray-500 dark:text-gray-400">No messages yet.</p>
+          <div className="bg-white/80 dark:bg-gray-900/80 rounded-3xl shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,0px_10px_#00000038,5px_5px_#00000038,-5px_5px_#00000038,inset_0px_5px_#ffffff1f,inset_0px_-5px_#00000030] p-8 border-4 border-[rgb(6,0,78)] text-center">
+            <p className="text-gray-500 dark:text-gray-400 font-pixelify-sans">No messages yet.</p>
           </div>
         ) : (
           <div className="space-y-6">
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={`bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 border-l-4 ${
+                className={`bg-white/80 dark:bg-gray-900/80 rounded-3xl shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,0px_10px_#00000038,5px_5px_#00000038,-5px_5px_#00000038,inset_0px_5px_#ffffff1f,inset_0px_-5px_#00000030] p-6 border-4 ${
                   message.status === 'unread' 
-                    ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' 
-                    : 'border-gray-300 dark:border-gray-600'
+                    ? 'border-blue-500 bg-blue-50/80 dark:bg-blue-900/40' 
+                    : 'border-[rgb(6,0,78)]'
                 }`}
               >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
                     <div className="flex items-center space-x-4 mb-2">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-pixelify-sans font-bold text-[rgb(6,0,78)]">
                         {message.name}
                       </h3>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                      <span className="text-sm text-gray-500 dark:text-gray-400 font-pixelify-sans">
                         {message.email}
                       </span>
                       {message.status === 'unread' && (
-                        <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                        <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full font-pixelify-sans">
                           New
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 font-pixelify-sans">
                       Subject: <span className="font-medium">{message.subject}</span>
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-pixelify-sans">
                       {formatDate(message.timestamp)}
                     </p>
                   </div>
@@ -162,21 +162,21 @@ export default function AdminPage() {
                     {message.status === 'unread' && (
                       <button
                         onClick={() => markAsRead(message.id)}
-                        className="px-3 py-1 text-sm bg-green-500 hover:bg-green-600 text-white rounded transition-colors"
+                        className="px-4 py-2 text-sm text-white font-jersey-15 bg-[#6abc3a] rounded-lg border-0 shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,0px_10px_#00000038,5px_5px_#00000038,-5px_5px_#00000038,inset_0px_5px_#ffffff36] active:translate-y-[3px] active:shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,inset_0px_5px_#00000038] transition-all"
                       >
                         Mark Read
                       </button>
                     )}
                     <button
                       onClick={() => deleteMessage(message.id)}
-                      className="px-3 py-1 text-sm bg-red-500 hover:bg-red-600 text-white rounded transition-colors"
+                      className="px-4 py-2 text-sm text-white font-jersey-15 bg-[#d83434] rounded-lg border-0 shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,0px_10px_#00000038,5px_5px_#00000038,-5px_5px_#00000038,inset_0px_5px_#ffffff36] active:translate-y-[3px] active:shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,inset_0px_5px_#00000038] transition-all"
                     >
                       Delete
                     </button>
                   </div>
                 </div>
                 <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                  <p className="text-gray-800 dark:text-gray-200 whitespace-pre-wrap">
+                  <p className="text-gray-800 dark:text-gray-200 whitespace-pre-wrap font-pixelify-sans">
                     {message.message}
                   </p>
                 </div>
@@ -188,7 +188,7 @@ export default function AdminPage() {
         <div className="mt-8 text-center">
           <button
             onClick={fetchMessages}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors"
+            className="text-white font-jersey-15 bg-[#38667f] px-10 py-4 text-lg border-0 shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,0px_10px_#00000038,5px_5px_#00000038,-5px_5px_#00000038,inset_0px_5px_#ffffff36] active:translate-y-[5px] active:shadow-[0px_5px_black,0px_-5px_black,5px_0px_black,-5px_0px_black,inset_0px_5px_#00000038] transition-all"
           >
             Refresh Messages
           </button>

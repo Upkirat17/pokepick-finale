@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,6 +11,21 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-pixelify-sans: "Pixelify Sans", sans-serif;
+  --font-jersey-15: "Jersey 15", "Pixelify Sans", sans-serif;
+  
+  --animate-float: float 3s ease-in-out infinite;
+  @keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +39,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  @apply bg-black bg-cover bg-center min-h-screen bg-no-repeat text-white;
+  background-image: url('/pokebg.jpg');
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 0 rgb(255, 255, 255);
+}
+
+.text-outline {
+  text-shadow: 0 0 1px #fff, 0 0 8px #fff;
 }
